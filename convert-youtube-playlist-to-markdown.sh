@@ -10,7 +10,7 @@ main(){
 
     if test -z "${playlist_url}"; then
         printf 'Error: A playlist URL must be provided.\n' 1>&2
-        return 1
+        exit 1
     fi
 
     # References:
