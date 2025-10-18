@@ -52,6 +52,7 @@ fi
 required_commands=(
     yt-dlp
     jq
+    realpath
 )
 flag_required_command_check_failed=false
 for command in "${required_commands[@]}"; do
@@ -69,6 +70,32 @@ if test "${flag_required_command_check_failed}" == true; then
         1>&2
     exit 1
 fi
+
+if test -v BASH_SOURCE; then
+    # Convenience variables may not need to be referenced
+    # shellcheck disable=SC2034
+    {
+        if ! script="$(
+            realpath \
+                --strip \
+                "${BASH_SOURCE[0]}"
+            )"; then
+            printf \
+                'Error: Unable to determine the absolute path of the program.\n' \
+                1>&2
+            exit 1
+        fi
+        script_dir="${script%/*}"
+        script_filename="${script##*/}"
+        script_name="${script_filename%%.*}"
+    }
+fi
+# Convenience variables may not need to be referenced
+# shellcheck disable=SC2034
+{
+    script_basecommand="${0}"
+    script_args=("${@}")
+}
 
 trap_err(){
     printf \
