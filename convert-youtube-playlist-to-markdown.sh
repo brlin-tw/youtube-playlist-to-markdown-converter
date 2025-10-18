@@ -116,6 +116,8 @@ fi
     script_args=("${@}")
 }
 
+# FALSE POSITIVE: Trap handlers are not invoked directly
+# shellcheck disable=SC2329
 trap_err(){
     printf \
         'Error: The program has encountered an unhandled error and is prematurely aborted.\n' \
