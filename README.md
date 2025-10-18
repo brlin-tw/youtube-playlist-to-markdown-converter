@@ -48,6 +48,15 @@ Refer to the following steps to use the utility:
 
    The resulting unordered Markdown list will be printed to the standard output of your terminal.
 
+## References
+
+The following materials are referenced during the development of this product:
+
+* [General Options · yt-dlp/README.md at 4e6a693 · yt-dlp/yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/4e6a693/README.md#general-options)  
+  Explains the usage of the following `yt-dlp` options used in this product:
+    + `--dump-json`
+    + `--flat-playlist`
+
 ## Licensing
 
 Unless otherwise noted([comment headers](https://reuse.software/spec-3.3/#comment-headers)/[REUSE.toml](https://reuse.software/spec-3.3/#reusetoml)), this product is licensed under [the 3.0 version of GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.html), or any of its more recent versions of your preference.
