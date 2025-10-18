@@ -19,6 +19,8 @@ Use `#!/usr/bin/env bash` as the shebang line for portability across different e
 
 Use `${var}` instead of `$var` for variable references to improve readability and avoid ambiguity.
 
+This also applies to positional parameters, e.g., use `${1}` instead of `$1`.
+
 ### Message reporting
 
 * Use `printf` instead of `echo` for formatted output.
