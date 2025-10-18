@@ -11,7 +11,7 @@ main(){
         exit 1
     fi
 
-    local playlist_url="$1"; shift
+    local playlist_url="${1}"; shift
 
     if test -z "${playlist_url}"; then
         printf 'Error: A playlist URL must be provided.\n' 1>&2
