@@ -17,6 +17,9 @@ The following are the prerequisites that you need to prepare before using this p
     + yt-dlp  
       The utility uses `yt-dlp` to fetch the playlist information from YouTube.  
       Refer to the [yt-dlp GitHub repository](https://github.com/yt-dlp/yt-dlp) for more information.
+    + jq  
+      The utility uses `jq` to parse the JSON data from `yt-dlp`.  
+      Refer to the [jq website](https://jqlang.github.io/jq/) for more information.
 
 ## Usage
 
