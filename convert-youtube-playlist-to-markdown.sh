@@ -26,7 +26,7 @@ main(){
     video_info="$(
         yt-dlp \
             --flat-playlist \
-            -j \
+            --dump-json \
             "${playlist_url}" \
         | jq -r '"\(.title);\(.webpage_url)"'
     )"
