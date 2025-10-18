@@ -43,7 +43,7 @@ main(){
     if ! video_list_raw="$( \
         jq \
             -r \
-            '"\(.title);\(.webpage_url)"' \
+            '.title, .webpage_url' \
             <<< "${video_info}"
         )"; then
         printf 'Error: Failed to extract video list from JSON.\n' 1>&2
@@ -52,7 +52,7 @@ main(){
 
     local title
     local url
-    while IFS=';' read -r title url; do
+    while read -r title && read -r url; do
         printf -- '* [%s](%s)\n' "${title}" "${url}"
     done <<< "${video_list_raw}"
 
