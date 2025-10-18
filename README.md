@@ -1,4 +1,4 @@
-# Youtube playlist to Markdown converter
+# YouTube playlist to Markdown converter
 
 Utility to convert user-specified YouTube playlist into a Markdown list with links to each video.
 
