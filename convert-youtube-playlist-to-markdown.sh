@@ -6,6 +6,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 main(){
+    if test "${#script_args[*]}" -ne 1; then
+        printf 'Usage: %s PLAYLIST_URL\n' "${script_basecommand}" 1>&2
+        exit 1
+    fi
+
     local playlist_url="$1"; shift
 
     if test -z "${playlist_url}"; then
