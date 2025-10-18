@@ -13,6 +13,12 @@ main(){
 
     local playlist_url="${1}"; shift
 
+    local youtube_playlist_regex='^https?:\/\/(www\.)?youtube\.com\/playlist\?list=.*$'
+    if ! [[ "${playlist_url}" =~ ${youtube_playlist_regex} ]]; then
+        printf 'Error: Invalid YouTube playlist URL provided.\n' 1>&2
+        exit 1
+    fi
+
     if test -z "${playlist_url}"; then
         printf 'Error: A playlist URL must be provided.\n' 1>&2
         exit 1
