@@ -12,9 +12,11 @@
 
 # Avoid exporting development files to release archive
 /.* export-ignore
+/AGENTS.md export-ignore
 /continuous-integration export-ignore
 /compose.yml export-ignore
 /dev-assets export-ignore
+/GEMINI.md export-ignore
 /Vagrantfile export-ignore
 
 # Keep editorconfig for ease of editing of product files
