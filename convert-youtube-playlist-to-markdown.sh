@@ -33,6 +33,7 @@ main(){
         exit 1
     fi
 
+    local video_list_raw
     if ! video_list_raw="$( \
         jq \
             -r \
