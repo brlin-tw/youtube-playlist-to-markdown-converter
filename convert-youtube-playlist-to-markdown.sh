@@ -23,19 +23,31 @@ main(){
     # * https://github.com/yt-dlp/yt-dlp#json-output
     # * https://github.com/yt-dlp/yt-dlp#flat-playlists
     local video_info
-    video_info="$(
+    if ! video_info="$(
         yt-dlp \
             --flat-playlist \
             --dump-json \
-            "${playlist_url}" \
-        | jq -r '"\(.title);\(.webpage_url)"'
-    )"
+            "${playlist_url}"
+        )"; then
+        printf 'Error: Failed to retrieve video information using yt-dlp.\n' 1>&2
+        exit 1
+    fi
+
+    if ! video_list_raw="$( \
+        jq \
+            -r \
+            '"\(.title);\(.webpage_url)"' \
+            <<< "${video_info}"
+        )"; then
+        printf 'Error: Failed to extract video list from JSON.\n' 1>&2
+        exit 1
+    fi
 
     local title
     local url
     while IFS=';' read -r title url; do
         printf -- '* [%s](%s)\n' "${title}" "${url}"
-    done <<< "${video_info}"
+    done <<< "${video_list_raw}"
 }
 
 set_opts=(
