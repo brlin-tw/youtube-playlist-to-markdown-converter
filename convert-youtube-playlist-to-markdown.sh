@@ -48,6 +48,8 @@ main(){
     while IFS=';' read -r title url; do
         printf -- '* [%s](%s)\n' "${title}" "${url}"
     done <<< "${video_list_raw}"
+
+    exit 0
 }
 
 set_opts=(
